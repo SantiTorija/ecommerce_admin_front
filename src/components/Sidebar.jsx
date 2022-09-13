@@ -2,7 +2,7 @@ import "../styles/customStyles.css";
 
 function Sidebar() {
 	return (
-		<>
+		<div id="layoutSidenav_nav">
 			<nav
 				className="sb-sidenav accordion sb-sidenav-dark"
 				id="sidenavAccordion"
@@ -158,7 +158,7 @@ function Sidebar() {
 					Carla Sarasa
 				</div>
 			</nav>
-		</>
+		</div>
 	);
 }
 
