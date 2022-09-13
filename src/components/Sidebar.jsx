@@ -28,7 +28,7 @@ function Sidebar() {
 							<div className="sb-nav-link-icon">
 								<i className="fas fa-columns"></i>
 							</div>
-							Ventas
+							Productos
 							<div className="sb-sidenav-collapse-arrow">
 								<i className="fas fa-angle-down"></i>
 							</div>
@@ -59,7 +59,7 @@ function Sidebar() {
 							<div className="sb-nav-link-icon">
 								<i className="fas fa-book-open"></i>
 							</div>
-							Usuarios
+							Administradores
 							<div className="sb-sidenav-collapse-arrow">
 								<i className="fas fa-angle-down"></i>
 							</div>
