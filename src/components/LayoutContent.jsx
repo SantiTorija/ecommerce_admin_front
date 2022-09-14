@@ -1,4 +1,5 @@
 import "../styles/customStyles.css";
+import UsersTable from "./UsersTable";
 
 function Layout() {
 	return (
@@ -6,7 +7,7 @@ function Layout() {
 			<div id="layoutSidenav_content">
 				<main>
 					<div class="container-fluid px-4">
-						<h1 class="mt-4">Dashboard</h1>
+						<h1 class="mt-4">Admin Dashboard</h1>
 						<ol class="breadcrumb mb-4">
 							<li class="breadcrumb-item active">Dashboard</li>
 						</ol>
@@ -19,7 +20,7 @@ function Layout() {
 											class="small text-white stretched-link"
 											href="hrefCambiar"
 										>
-											View Details
+											Ver más
 										</a>
 										<div class="small text-white">
 											<i class="fas fa-angle-right"></i>
@@ -35,7 +36,7 @@ function Layout() {
 											class="small text-white stretched-link"
 											href="hrefCambiar"
 										>
-											View Details
+											Ver más
 										</a>
 										<div class="small text-white">
 											<i class="fas fa-angle-right"></i>
@@ -51,7 +52,7 @@ function Layout() {
 											class="small text-white stretched-link"
 											href="hrefCambiar"
 										>
-											View Details
+											Ver más
 										</a>
 										<div class="small text-white">
 											<i class="fas fa-angle-right"></i>
@@ -67,7 +68,7 @@ function Layout() {
 											class="small text-white stretched-link"
 											href="hrefCambiar"
 										>
-											View Details
+											Ver más
 										</a>
 										<div class="small text-white">
 											<i class="fas fa-angle-right"></i>
@@ -81,7 +82,7 @@ function Layout() {
 								<div class="card mb-4">
 									<div class="card-header">
 										<i class="fas fa-chart-area me-1"></i>
-										Area Chart Example
+										Gráfica de Ventas
 									</div>
 									<div class="card-body">
 										<canvas id="myAreaChart" width="100%" height="40"></canvas>
@@ -92,7 +93,7 @@ function Layout() {
 								<div class="card mb-4">
 									<div class="card-header">
 										<i class="fas fa-chart-bar me-1"></i>
-										Bar Chart Example
+										Gráfica de Visitas al Sitio
 									</div>
 									<div class="card-body">
 										<canvas id="myBarChart" width="100%" height="40"></canvas>
@@ -103,36 +104,10 @@ function Layout() {
 						<div class="card mb-4">
 							<div class="card-header">
 								<i class="fas fa-table me-1"></i>
-								DataTable Example
+								Listado de usuarios
 							</div>
 							<div class="card-body">
-								<table id="datatablesSimple">
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Position</th>
-											<th>Office</th>
-											<th>Age</th>
-											<th>Start date</th>
-											<th>Salary</th>
-										</tr>
-									</thead>
-									<tfoot>
-										<tr>
-											<th>Name</th>
-											<th>Position</th>
-											<th>Office</th>
-											<th>Age</th>
-											<th>Start date</th>
-											<th>Salary</th>
-										</tr>
-									</tfoot>
-									<tbody>
-										<tr>
-											<td>Tiger Nixon</td>
-										</tr>
-									</tbody>
-								</table>
+								<UsersTable />
 							</div>
 						</div>
 					</div>
