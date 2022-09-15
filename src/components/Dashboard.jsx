@@ -3,15 +3,7 @@ import Sidebar from "./Sidebar";
 import LayoutContent from "./LayoutContent";
 
 function Dashboard() {
-	return (
-		<div className="sb-nav-fixed">
-			<Navbar />
-			<div id="layoutSidenav">
-				<Sidebar />
-				<LayoutContent />
-			</div>
-		</div>
-	);
+	return <LayoutContent />;
 }
 
 export default Dashboard;
