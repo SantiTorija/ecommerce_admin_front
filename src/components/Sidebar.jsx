@@ -1,4 +1,5 @@
 import "../styles/customStyles.css";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
 	return (
@@ -10,44 +11,26 @@ function Sidebar() {
 				<div className="sb-sidenav-menu">
 					<div className="nav">
 						<div className="sb-sidenav-menu-heading">Dashboard</div>
-						<a className="nav-link" href="index.html">
+						<Link className="nav-link collapsed" to={"/"}>
 							<div className="sb-nav-link-icon">
 								<i className="fas fa-tachometer-alt"></i>
 							</div>
 							Inicio
-						</a>
+						</Link>
 						<div className="sb-sidenav-menu-heading">Administrador</div>
-						<a
-							className="nav-link collapsed"
-							href="cambiarHref"
-							data-bs-toggle="collapse"
-							data-bs-target="#collapseLayouts"
-							aria-expanded="false"
-							aria-controls="collapseLayouts"
-						>
+
+						<Link className="nav-link collapsed" to={"/products"}>
 							<div className="sb-nav-link-icon">
 								<i className="fas fa-columns"></i>
 							</div>
 							Productos
-							<div className="sb-sidenav-collapse-arrow">
-								<i className="fas fa-angle-down"></i>
-							</div>
-						</a>
+						</Link>
 						<div
 							className="collapse"
 							id="collapseLayouts"
 							aria-labelledby="headingOne"
 							data-bs-parent="#sidenavAccordion"
-						>
-							<nav className="sb-sidenav-menu-nested nav">
-								<a className="nav-link" href="layout-static.html">
-									Static Navigation
-								</a>
-								<a className="nav-link" href="layout-sidenav-light.html">
-									Light Sidenav
-								</a>
-							</nav>
-						</div>
+						></div>
 						<a
 							className="nav-link collapsed"
 							href="cambiarHref"

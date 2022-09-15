@@ -4,7 +4,7 @@ import LayoutContent from "./LayoutContent";
 
 function Dashboard() {
 	return (
-		<div classNameName="sb-nav-fixed">
+		<div className="sb-nav-fixed">
 			<Navbar />
 			<div id="layoutSidenav">
 				<Sidebar />

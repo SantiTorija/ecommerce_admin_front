@@ -33,7 +33,7 @@ function UsersTables() {
 				<tbody>
 					{users.map((user, index) => {
 						return (
-							<tr>
+							<tr key={index}>
 								<td>{index + 1}</td>
 								<td>{user.firstname}</td>
 								<td>{user.lastname}</td>

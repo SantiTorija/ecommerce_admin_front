@@ -1,15 +1,15 @@
-import WinesTable from "../components/WinesTable";
+import Dashboard from "../components/Dashboard";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
-function Products() {
+function Home() {
 	return (
 		<>
 			<div className="sb-nav-fixed">
 				<Navbar />
 				<div id="layoutSidenav">
 					<Sidebar />
-					<WinesTable />
+					<Dashboard />
 				</div>
 			</div>
 			;
@@ -17,4 +17,4 @@ function Products() {
 	);
 }
 
-export default Products;
+export default Home;
