@@ -184,11 +184,6 @@ function CreateProductForm() {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Slug</Form.Label>
-          <Form.Control type="text" placeholder="Ejemplo: nombre-del-vino" />
-        </Form.Group>
-
         <Button variant="primary" type="submit">
           Submit
         </Button>

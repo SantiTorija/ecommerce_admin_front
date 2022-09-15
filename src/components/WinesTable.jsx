@@ -3,6 +3,8 @@ import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
 import handleDeleteAlert from "./DeleteAlert";
 import axios from "axios";
+import { FaTrashAlt } from "react-icons/fa";
+import { GrEdit } from "react-icons/gr";
 
 function WinesTable() {
   const [wines, setWines] = useState(null);
@@ -29,7 +31,7 @@ function WinesTable() {
             <button className="btn btn-success">Agregar nuevo</button>
           </Link>
         </div>
-        <Table striped bordered hover>
+        <Table striped bordered hover style={{ marginBottom: "100%" }}>
           <thead>
             <tr>
               <th>#</th>
@@ -49,15 +51,27 @@ function WinesTable() {
                   <td>{wine.price}</td>
                   <td>{wine.stock}</td>
                   <td>{wine.highlighted ? "true" : "false"}</td>
-                  <td className="d-flex justify-content-center gap-2 text-center">
+                  <td className="d-flex justify-content-center gap-3 text-center">
                     <Link to={`/edit/${wine.slug}`}>
-                      <button className="btn btn-primary">Editar</button>
+                      <button
+                        style={{
+                          border: "none",
+                          backgrondColor: "transparent",
+                          color: "blue",
+                        }}
+                      >
+                        <GrEdit />
+                      </button>
                     </Link>
                     <button
-                      className="btn btn-danger"
+                      style={{
+                        border: "none",
+                        backgrondColor: "transparent",
+                        color: "red",
+                      }}
                       onClick={() => handleDeleteAlert(wine._id)}
                     >
-                      Borrar
+                      <FaTrashAlt />
                     </button>
                   </td>
                 </tr>
