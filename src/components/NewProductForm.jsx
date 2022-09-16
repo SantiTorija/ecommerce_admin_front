@@ -66,7 +66,11 @@ function CreateProductForm() {
   }
 
   return (
-    <div id="layoutSidenav_content" className="m-4">
+    <div
+      style={{ marginBottom: "100%" }}
+      id="layoutSidenav_content"
+      className="m-4"
+    >
       <div className="d-flex justify-content-between py-4">
         <h1>Crear nuevo producto</h1>
       </div>
@@ -74,7 +78,7 @@ function CreateProductForm() {
       <Form
         onSubmit={() => {
           createProduct();
-          navigate("/Products");
+          navigate("/Productos");
         }}
       >
         <Form.Group className="mb-3">
