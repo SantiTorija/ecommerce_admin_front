@@ -14,7 +14,7 @@ function Login() {
   async function getToken() {
     try {
       const response = await axios({
-        method: "get",
+        method: "post",
         url: `http://localhost:8000/admin/token`,
         data: { email, password },
       });
