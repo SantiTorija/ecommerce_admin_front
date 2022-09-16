@@ -2,8 +2,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function CreateProductForm() {
+  const navigate = useNavigate();
   const [name, setName] = useState(null);
   const [picture, setPicture] = useState(null);
   const [variety, setVariety] = useState(null);
@@ -69,7 +71,12 @@ function CreateProductForm() {
         <h1>Crear nuevo producto</h1>
       </div>
 
-      <Form>
+      <Form
+        onSubmit={() => {
+          createProduct();
+          navigate("/Products");
+        }}
+      >
         <Form.Group className="mb-3">
           <Form.Label>Producto</Form.Label>
           <Form.Control
