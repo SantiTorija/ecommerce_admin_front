@@ -34,7 +34,6 @@ function CreateProductForm() {
       }
     );
     const file = await res.json();
-
     setPicture(file.secure_url);
   };
   console.log(picture);
@@ -59,6 +58,7 @@ function CreateProductForm() {
           /* highlighted*/
         },
       });
+      console.log();
       return response;
     } catch (error) {
       console.log(error);
