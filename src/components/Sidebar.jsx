@@ -19,7 +19,7 @@ function Sidebar() {
             </Link>
             <div className="sb-sidenav-menu-heading">Administrador</div>
 
-            <Link className="nav-link collapsed" to={"/products"}>
+            <Link className="nav-link collapsed" to={"/productos"}>
               <div className="sb-nav-link-icon">
                 <i className="fas fa-columns"></i>
               </div>
@@ -32,7 +32,7 @@ function Sidebar() {
               data-bs-parent="#sidenavAccordion"
             ></div>
 
-            <Link className="nav-link collapsed" to={"/administators"}>
+            <Link className="nav-link collapsed" to={"/administradores"}>
               <div className="sb-nav-link-icon">
                 <i className="fas fa-book-open"></i>
               </div>
@@ -45,11 +45,23 @@ function Sidebar() {
               aria-labelledby="headingTwo"
               data-bs-parent="#sidenavAccordion"
             ></div>
-            <Link className="nav-link collapsed" to={"/orders"}>
+            <Link className="nav-link collapsed" to={"/ordenes"}>
               <div className="sb-nav-link-icon">
                 <i className="fas fa-book-open"></i>
               </div>
               Ordenes
+            </Link>
+            <div
+              className="collapse"
+              id="collapsePages"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#sidenavAccordion"
+            ></div>
+            <Link className="nav-link collapsed" to={"/categorias"}>
+              <div className="sb-nav-link-icon">
+                <i className="fas fa-book-open"></i>
+              </div>
+              Categorías
             </Link>
 
             <div className="sb-sidenav-menu-heading">Más</div>

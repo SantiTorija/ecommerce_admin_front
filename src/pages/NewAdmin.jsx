@@ -1,19 +1,19 @@
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import CreateProductForm from "../components/NewProductForm";
+import CreateAdminForm from "../components/NewAdminForm";
 
-function NewProduct() {
+function NewAdmin() {
   return (
     <>
       <div className="sb-nav-fixed">
         <Navbar />
         <div id="layoutSidenav">
           <Sidebar />
-          <CreateProductForm />
+          <CreateAdminForm />
         </div>
       </div>
     </>
   );
 }
 
-export default NewProduct;
+export default NewAdmin;

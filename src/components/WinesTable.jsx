@@ -26,7 +26,7 @@ function WinesTable() {
     wines && (
       <div id="layoutSidenav_content" className="m-4">
         <div className="d-flex justify-content-between py-4">
-          <h1>Listado de Productos</h1>
+          <h1>Productos</h1>
           <Link to={"/create/wine"}>
             <button className="btn btn-success">Agregar nuevo</button>
           </Link>

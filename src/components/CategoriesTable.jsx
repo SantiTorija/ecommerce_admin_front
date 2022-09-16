@@ -1,33 +1,39 @@
 import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
-import { handleDeleteAdmin } from "./DeleteAlert";
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
+import { useSelector } from "react-redux";
 
-function AdminTable() {
-  const [admins, setAdmins] = useState(null);
+function CategoriesTable() {
+  const [types, setTypes] = useState(null);
+  const adminState = useSelector((state) => state.admin);
 
   useEffect(() => {
-    const dataAdmins = async () => {
+    const dataTypes = async () => {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:8000/admin/`,
+        url: `http://localhost:8000/types/`,
+        headers: {
+          Authorization: `Bearer ${adminState.token}`,
+          "Content-Type": "application/json",
+        },
       });
-      setAdmins(response.data);
+      setTypes(response.data);
 
       return response;
     };
-    dataAdmins();
+    dataTypes();
   }, []);
+  console.log(types);
 
   return (
-    admins && (
+    types && (
       <div id="layoutSidenav_content" className="m-4">
         <div className="d-flex justify-content-between py-4">
-          <h1>Administradores</h1>
-          <Link to={"/create/admin"}>
+          <h1>Categorías</h1>
+          <Link to={"/crear/tipo"}>
             <button className="btn btn-success">Agregar nuevo</button>
           </Link>
         </div>
@@ -35,23 +41,21 @@ function AdminTable() {
           <thead>
             <tr>
               <th>#</th>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Email</th>
+              <th>Tipo</th>
+              <th>Cantidad</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {admins.map((admin, index) => {
+            {types.map((type, index) => {
               return (
-                <tr key={index}>
+                <tr key={type._id}>
                   <td>{index + 1}</td>
-                  <td>{admin.firstname}</td>
-                  <td>{admin.lastname}</td>
-                  <td>{admin.email}</td>
+                  <td>{type.name}</td>
+                  <td>{Math.floor(Math.random() * 50)}</td>
 
                   <td className="d-flex justify-content-center gap-3 text-center">
-                    <Link to={`/edit/${admin.firstname}`}>
+                    <Link to={`/edit/${type.name}`}>
                       <button
                         style={{
                           border: "none",
@@ -67,7 +71,6 @@ function AdminTable() {
                         backgroundColor: "transparent",
                         color: "red",
                       }}
-                      onClick={() => handleDeleteAdmin(admin._id)}
                     >
                       <FaTrashAlt />
                     </button>
@@ -82,4 +85,4 @@ function AdminTable() {
   );
 }
 
-export default AdminTable;
+export default CategoriesTable;
