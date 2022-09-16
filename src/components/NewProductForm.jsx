@@ -18,6 +18,24 @@ function CreateProductForm() {
   const [stock, setStock] = useState(null);
   const [highlighted, setHighlighted] = useState(null);
 
+  const upLoadImage = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "ecommerce");
+    /*  setLoading(true); */
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dazcipdps/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+    const file = await res.json();
+
+    setPicture(file.secure_url);
+  };
+  console.log(picture);
   async function createProduct() {
     try {
       const response = await axios({
@@ -63,10 +81,7 @@ function CreateProductForm() {
 
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Seleccionar Archivo</Form.Label>
-          <Form.Control
-            type="file"
-            onChange={(e) => setPicture(e.target.value)}
-          />
+          <Form.Control type="file" onChange={upLoadImage} />
         </Form.Group>
 
         <Form.Group className="mb-3">
