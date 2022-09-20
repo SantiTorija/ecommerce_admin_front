@@ -17,7 +17,7 @@ function CreateAdminForm() {
     try {
       const response = await axios({
         method: "POST",
-        url: `http://localhost:8000/admin/`,
+        url: `${process.env.REACT_APP_API_URL}admin/`,
         data: {
           firstname: firstname,
           lastname: lastname,

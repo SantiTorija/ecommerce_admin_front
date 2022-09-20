@@ -15,7 +15,7 @@ function WinesTable() {
     const dataWine = async () => {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:8000/wines/`,
+        url: `${process.env.REACT_APP_API_URL}wines/`,
       });
       setWines(response.data);
 

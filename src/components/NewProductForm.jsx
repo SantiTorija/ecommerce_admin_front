@@ -41,7 +41,7 @@ function CreateProductForm() {
     try {
       const response = await axios({
         method: "POST",
-        url: `http://localhost:8000/wines/`,
+        url: `${process.env.REACT_APP_API_URL}wines/`,
         data: {
           name: name,
           picture: picture,

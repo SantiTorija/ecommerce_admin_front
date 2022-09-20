@@ -11,7 +11,7 @@ function EditForm() {
     const dataWine = async () => {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:8000/wines/${wineSlug}`,
+        url: `${process.env.REACT_APP_API_URL}wines/${wineSlug}`,
       });
       setWine(response.data);
       return response;
@@ -41,7 +41,7 @@ function EditForm() {
     try {
       const response = await axios({
         method: "PATCH",
-        url: `http://localhost:8000/wines/${wine._id}`,
+        url: `${process.env.REACT_APP_API_URL}wines/${wine._id}`,
         data: {
           name: name ? name : wine.name,
           picture: picture ? picture : wine.picture,

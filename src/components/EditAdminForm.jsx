@@ -19,7 +19,7 @@ function EditAdminForm() {
     const dataAdmin = async () => {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:8000/admin/${params.id}`,
+        url: `${process.env.REACT_APP_API_URL}admin/${params.id}`,
         headers: {
           Authorization: `Bearer ${admin.token}`,
           "Content-Type": "application/json",
@@ -36,7 +36,7 @@ function EditAdminForm() {
     try {
       const response = await axios({
         method: "PATCH",
-        url: `http://localhost:8000/admin/${params.id}`,
+        url: `${process.env.REACT_APP_API_URL}admin/${params.id}`,
         data: {
           firstname: firstname ? firstname : adminInfo.firstname,
           lastname: lastname ? lastname : adminInfo.lastanme,

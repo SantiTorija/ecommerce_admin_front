@@ -5,7 +5,7 @@ export async function handleDeleteWine(id, token) {
   async function productDelete() {
     await axios({
       method: "DELETE",
-      url: `http://localhost:8000/wines/${id}`,
+      url: `${process.env.REACT_APP_API_URL}wines/${id}`,
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export async function handleDeleteAdmin(id, token) {
   async function adminDelete() {
     await axios({
       method: "DELETE",
-      url: `http://localhost:8000/admin/${id}`,
+      url: `${process.env.REACT_APP_API_URL}admin/${id}`,
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",

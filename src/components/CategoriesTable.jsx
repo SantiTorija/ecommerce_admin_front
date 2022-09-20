@@ -14,7 +14,7 @@ function CategoriesTable() {
     const dataTypes = async () => {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:8000/types/`,
+        url: `${process.env.REACT_APP_API_URL}types/`,
         headers: {
           Authorization: `Bearer ${adminState.token}`,
           "Content-Type": "application/json",
@@ -43,7 +43,6 @@ function CategoriesTable() {
               <th>#</th>
               <th>Tipo</th>
               <th>Cantidad</th>
-            
             </tr>
           </thead>
           <tbody>
@@ -52,8 +51,7 @@ function CategoriesTable() {
                 <tr key={type._id}>
                   <td>{index + 1}</td>
                   <td>{type.name}</td>
-                  <td>{Math.floor(Math.random() * 50)}</td>              
-         
+                  <td>{Math.floor(Math.random() * 50)}</td>
                 </tr>
               );
             })}

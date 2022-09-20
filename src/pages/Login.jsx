@@ -15,7 +15,7 @@ function Login() {
     try {
       const response = await axios({
         method: "post",
-        url: `http://localhost:8000/admin/token`,
+        url: `${process.env.REACT_APP_API_URL}admin/token`,
         data: { email, password },
       });
       dispatch(

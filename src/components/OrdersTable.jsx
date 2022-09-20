@@ -13,7 +13,7 @@ function OrdersTable() {
     const dataOrders = async () => {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:8000/orders/`,
+        url: `${process.env.REACT_APP_API_URL}orders/`,
         headers: {
           Authorization: `Bearer ${adminState.token}`,
           "Content-Type": "application/json",

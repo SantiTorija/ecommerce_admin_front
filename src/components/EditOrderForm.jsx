@@ -16,7 +16,7 @@ function EditOrderForm() {
     const dataOrder = async () => {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:8000/orders/${params.id}`,
+        url: `${process.env.REACT_APP_API_URL}orders/${params.id}`,
         headers: {
           Authorization: `Bearer ${adminState.token}`,
           "Content-Type": "application/json",
@@ -33,7 +33,7 @@ function EditOrderForm() {
     try {
       const response = await axios({
         method: "PATCH",
-        url: `http://localhost:8000/orders/${params.id}`,
+        url: `${process.env.REACT_APP_API_URL}orders/${params.id}`,
         data: {
           state: status,
         },
