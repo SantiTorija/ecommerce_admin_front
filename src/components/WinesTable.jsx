@@ -5,9 +5,11 @@ import { handleDeleteWine } from "./DeleteAlert";
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
+import { useSelector } from "react-redux";
 
 function WinesTable() {
   const [wines, setWines] = useState(null);
+  const adminState = useSelector((state) => state.admin);
 
   useEffect(() => {
     const dataWine = async () => {
@@ -68,7 +70,9 @@ function WinesTable() {
                         backgroundColor: "transparent",
                         color: "red",
                       }}
-                      onClick={() => handleDeleteWine(wine._id)}
+                      onClick={() =>
+                        handleDeleteWine(wine._id, adminState.token)
+                      }
                     >
                       <FaTrashAlt />
                     </button>

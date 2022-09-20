@@ -3,8 +3,10 @@ import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function CreateProductForm() {
+  const adminState = useSelector((state) => state.admin);
   const navigate = useNavigate();
   const [name, setName] = useState(null);
   const [picture, setPicture] = useState(null);
@@ -35,7 +37,6 @@ function CreateProductForm() {
     const file = await res.json();
     setPicture(file.secure_url);
   };
-  console.log(picture);
   async function createProduct() {
     try {
       const response = await axios({
@@ -56,8 +57,11 @@ function CreateProductForm() {
           stock: stock,
           highlighted: highlighted,
         },
+        headers: {
+          Authorization: `Bearer ${adminState.token}`,
+          "Content-Type": "application/json",
+        },
       });
-      console.log();
       return response;
     } catch (error) {
       console.log(error);
@@ -85,6 +89,7 @@ function CreateProductForm() {
           <Form.Group className=" me-5 w-100">
             <Form.Label>Producto</Form.Label>
             <Form.Control
+              required="true"
               type="text"
               placeholder="Nombre del vino"
               onChange={(e) => setName(e.target.value)}
@@ -93,7 +98,7 @@ function CreateProductForm() {
 
           <Form.Group controlId="formFile" className=" w-100">
             <Form.Label>Seleccionar foto</Form.Label>
-            <Form.Control type="file" onChange={upLoadImage} />
+            <Form.Control required="true" type="file" onChange={upLoadImage} />
           </Form.Group>
         </div>
 
@@ -101,6 +106,7 @@ function CreateProductForm() {
           <Form.Group className=" me-5 w-100">
             <Form.Label>Variedad</Form.Label>
             <Form.Control
+              required="true"
               type="text"
               placeholder="Variedad"
               onChange={(e) => setVariety(e.target.value)}
@@ -110,14 +116,15 @@ function CreateProductForm() {
           <div className=" w-100">
             <Form.Label>Seleccione tipo de vino</Form.Label>
             <Form.Select
+              required="true"
               onChange={(e) => setWineType(e.target.value)}
               aria-label="Default select example"
             >
               <option>...</option>
-              <option value="1">Tinto</option>
-              <option value="2">Blanco</option>
-              <option value="3">Rose</option>
-              <option value="3">Espumante</option>
+              <option value="Tinto">Tinto</option>
+              <option value="Blanco">Blanco</option>
+              <option value="Rose">Rose</option>
+              <option value="Espumante">Espumante</option>
             </Form.Select>
           </div>
         </div>
@@ -125,6 +132,7 @@ function CreateProductForm() {
           <Form.Group className="w-100 me-5">
             <Form.Label>País</Form.Label>
             <Form.Control
+              required="true"
               type="text"
               placeholder="Pais de procedencia"
               onChange={(e) => setCountry(e.target.value)}
@@ -134,6 +142,7 @@ function CreateProductForm() {
           <Form.Group className="w-100">
             <Form.Label>Región</Form.Label>
             <Form.Control
+              required="true"
               type="text"
               placeholder="región de procedencia"
               onChange={(e) => setRegion(e.target.value)}
@@ -145,6 +154,7 @@ function CreateProductForm() {
           <Form.Group className="me-5 w-100">
             <Form.Label>Cosecha</Form.Label>
             <Form.Control
+              required="true"
               type="text"
               placeholder="Año de cosecha"
               onChange={(e) => setHarvest(e.target.value)}
@@ -154,6 +164,7 @@ function CreateProductForm() {
           <Form.Group className="w-100">
             <Form.Label>Bodega</Form.Label>
             <Form.Control
+              required="true"
               type="text"
               placeholder="Bodega"
               onChange={(e) => setCellar(e.target.value)}
@@ -165,6 +176,7 @@ function CreateProductForm() {
           <Form.Group className="w-100 me-5">
             <Form.Label>Capacidad</Form.Label>
             <Form.Control
+              required="true"
               type="text"
               placeholder="capcidad"
               onChange={(e) => setCapacity(e.target.value)}
@@ -174,6 +186,7 @@ function CreateProductForm() {
           <Form.Group className="w-100 ">
             <Form.Label>Precio</Form.Label>
             <Form.Control
+              required="true"
               type="number"
               placeholder="Precio en dólares"
               onChange={(e) => setPrice(e.target.value)}
@@ -184,6 +197,7 @@ function CreateProductForm() {
         <Form.Group className="mb-3">
           <Form.Label>Descripción</Form.Label>
           <Form.Control
+            required="true"
             as="textarea"
             rows="4"
             placeholder="Descripción del producto"
@@ -195,6 +209,7 @@ function CreateProductForm() {
           <Form.Group className="mb-3 me-5 w-100">
             <Form.Label>Stock</Form.Label>
             <Form.Control
+              required="true"
               type="number"
               placeholder="Cantidad en inventario"
               onChange={(e) => setStock(e.target.value)}
@@ -203,6 +218,7 @@ function CreateProductForm() {
           <Form.Group className="me-5 w-100">
             <Form.Label>Destacado</Form.Label>
             <Form.Check
+              required="true"
               type="radio"
               label="si"
               onClick={() => setHighlighted(true)}
@@ -210,6 +226,7 @@ function CreateProductForm() {
               id="default-radio"
             />
             <Form.Check
+              required="true"
               type="radio"
               label="no"
               onClick={() => setHighlighted(false)}
@@ -221,6 +238,13 @@ function CreateProductForm() {
 
         <Button className="mb-5" variant="primary" type="submit">
           Submit
+        </Button>
+        <Button
+          onClick={() => navigate("/productos")}
+          className="mb-5 ms-4"
+          variant="light"
+        >
+          Back
         </Button>
       </Form>
     </div>

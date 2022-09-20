@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import { login } from "../redux/adminSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -22,6 +22,8 @@ function Login() {
         login({
           token: response.data.token,
           email: email,
+          firstname: response.data.firstname,
+          lastname: response.data.lastname,
         })
       );
       navigate("/");
