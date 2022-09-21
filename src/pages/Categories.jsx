@@ -2,13 +2,13 @@ import CategoriesTable from "../components/CategoriesTable";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
-function Categories() {
+function Categories({ setRefresh, refresh }) {
   return (
     <div className="sb-nav-fixed">
       <Navbar />
       <div id="layoutSidenav">
         <Sidebar />
-        <CategoriesTable />
+        <CategoriesTable refresh={refresh} setRefresh={setRefresh} />
       </div>
     </div>
   );

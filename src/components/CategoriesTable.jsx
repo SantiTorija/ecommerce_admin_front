@@ -6,7 +6,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
 import { useSelector } from "react-redux";
 
-function CategoriesTable() {
+function CategoriesTable({ refresh }) {
   const [types, setTypes] = useState(null);
   const adminState = useSelector((state) => state.admin);
 
@@ -25,8 +25,7 @@ function CategoriesTable() {
       return response;
     };
     dataTypes();
-  }, []);
-  console.log(types);
+  }, [refresh]);
 
   return (
     types && (

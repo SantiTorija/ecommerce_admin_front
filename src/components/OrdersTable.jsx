@@ -5,7 +5,7 @@ import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function OrdersTable() {
+function OrdersTable({ refresh }) {
   const [orders, setOrders] = useState(null);
   const adminState = useSelector((state) => state.admin);
 
@@ -24,7 +24,7 @@ function OrdersTable() {
       return response;
     };
     dataOrders();
-  }, []);
+  }, [refresh]);
 
   return (
     orders && (

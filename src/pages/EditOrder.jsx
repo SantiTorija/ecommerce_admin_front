@@ -2,14 +2,14 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import EditOrderForm from "../components/EditOrderForm";
 
-function EditOrder() {
+function EditOrder({ setRefresh, refresh }) {
   return (
     <>
       <div className="sb-nav-fixed">
         <Navbar />
         <div id="layoutSidenav">
           <Sidebar />
-          <EditOrderForm />
+          <EditOrderForm refresh={refresh} setRefresh={setRefresh} />
         </div>
       </div>
       ;
