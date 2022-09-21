@@ -5,15 +5,21 @@ import { handleDeleteAdmin } from "./DeleteAlert";
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
+import { useSelector } from "react-redux";
 
 function AdminTable() {
   const [admins, setAdmins] = useState(null);
+  const adminState = useSelector((state) => state.admin);
 
   useEffect(() => {
     const dataAdmins = async () => {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:8000/admin/`,
+        url: `${process.env.REACT_APP_API_URL}admin/`,
+        headers: {
+          Authorization: `Bearer ${adminState.token}`,
+          "Content-Type": "application/json",
+        },
       });
       setAdmins(response.data);
 
@@ -51,7 +57,7 @@ function AdminTable() {
                   <td>{admin.email}</td>
 
                   <td className="d-flex justify-content-center gap-3 text-center">
-                    <Link to={`/edit/${admin.firstname}`}>
+                    <Link to={`/edit/admin/${admin._id}`}>
                       <button
                         style={{
                           border: "none",
@@ -67,7 +73,9 @@ function AdminTable() {
                         backgroundColor: "transparent",
                         color: "red",
                       }}
-                      onClick={() => handleDeleteAdmin(admin._id)}
+                      onClick={() =>
+                        handleDeleteAdmin(admin._id, adminState.token)
+                      }
                     >
                       <FaTrashAlt />
                     </button>

@@ -11,6 +11,8 @@ import ProtectedRoute from "./components/PrivateRoutes";
 import Orders from "./pages/Orders";
 import Categories from "./pages/Categories";
 import NewAdmin from "./pages/NewAdmin";
+import EditAdmin from "./pages/EditAdmin";
+import EditOrder from "./pages/EditOrder";
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
           <Route path="/create/wine" element={<NewProduct />} />
           <Route path="/administradores" element={<Administrators />} />
           <Route path="/create/admin" element={<NewAdmin />} />
+          <Route path="/edit/admin/:id" element={<EditAdmin />} />
           <Route path="/ordenes" element={<Orders />} />
+          <Route path="/editar/orden/:id" element={<EditOrder />} />
           <Route path="/categorias" element={<Categories />} />
           <Route path="*" element={<Home />} />
         </Route>

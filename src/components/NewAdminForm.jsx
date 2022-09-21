@@ -17,7 +17,7 @@ function CreateAdminForm() {
     try {
       const response = await axios({
         method: "POST",
-        url: `http://localhost:8000/admin/`,
+        url: `${process.env.REACT_APP_API_URL}admin/`,
         data: {
           firstname: firstname,
           lastname: lastname,
@@ -42,40 +42,46 @@ function CreateAdminForm() {
       </div>
 
       <Form
+        style={{ marginBottom: "100%" }}
         onSubmit={() => {
           createAdmin();
           navigate("/Administradores");
         }}
       >
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 w-50">
           <Form.Label>Nombre</Form.Label>
           <Form.Control
+            required="true"
             type="text"
             placeholder="Ingrese nombre"
             onChange={(e) => setFirstname(e.target.value)}
           />
         </Form.Group>
 
-        <Form.Group controlId="formFile" className="mb-3">
+        <Form.Group controlId="formFile" className="mb-3 w-50">
           <Form.Label>Apellido</Form.Label>
           <Form.Control
-            type="file"
+            required="true"
+            type="text"
+            placeholder="Ingrese apellido"
             onChange={(e) => setLastname(e.target.value)}
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 w-50">
           <Form.Label>Email</Form.Label>
           <Form.Control
+            required="true"
             type="email"
             placeholder="Ingrese e-mail"
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 w-50">
           <Form.Label>Password</Form.Label>
           <Form.Control
+            required="true"
             type="password"
             placeholder="Ingrese password"
             onChange={(e) => setPassword(e.target.value)}
@@ -84,6 +90,13 @@ function CreateAdminForm() {
 
         <Button variant="primary" type="submit">
           Submit
+        </Button>
+        <Button
+          onClick={() => navigate("/administradores")}
+          className="ms-4"
+          variant="light"
+        >
+          Back
         </Button>
       </Form>
     </div>
