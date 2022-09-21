@@ -56,6 +56,7 @@ function Login() {
           <Form.Control
             onChange={(e) => setEmail(e.target.value)}
             type="email"
+            defaultValue={email}
             placeholder="Ingrese email"
           />
         </Form.Group>
@@ -65,6 +66,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
+            defaultValue={password}
           />
         </Form.Group>
         <Button className="w-100" variant="primary" type="submit">
