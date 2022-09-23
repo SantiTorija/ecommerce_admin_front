@@ -5,6 +5,7 @@ import { login } from "../redux/adminSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../styles/customStyles.css";
 
 function Login() {
   const [email, setEmail] = useState("admin@gmail.com");
@@ -51,19 +52,21 @@ function Login() {
         top: "50%",
         transform: "translate(-50%, -50%)",
       }}
+      id="login-box"
       className="d-flex flex-column align-items-center justify-content-center"
     >
-      <h1 className="mb-5">Login</h1>
+      <h1 className="mb-5 w-100 text-center">Login</h1>
       <Form
         onSubmit={(e) => {
           e.preventDefault();
           getToken();
         }}
-        className="border p-5 bg-light"
+        className="border p-5 bg-light w-100"
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control
+            className="form-control-login"
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             value={email}
@@ -73,6 +76,7 @@ function Login() {
         <Form.Group className="mb-2" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
+            className="form-control-login"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
@@ -91,7 +95,7 @@ function Login() {
             Cargar datos de prueba
           </label>
         </div>
-        <Button className="w-100" variant="primary" type="submit">
+        <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>

@@ -133,9 +133,9 @@ function Layout() {
               </div>
             </div>
             <div className="row">
-              <div className="col-xl-6">
+              <div className="col-xl-6 d-none d-lg-inline">
                 <div className="card mb-4">
-                  <div className="card-header">
+                  <div className="card-header ">
                     <Line options={options} data={data} />
                   </div>
                   <div className="card-body">
@@ -143,9 +143,9 @@ function Layout() {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-6">
+              <div className="col-xl-6 d-none d-lg-inline">
                 <div className="card mb-4">
-                  <div className="card-header">
+                  <div className="card-header ">
                     <Line options={options_users} data={data_users} />
                   </div>
                   <div className="card-body">

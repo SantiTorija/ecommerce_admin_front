@@ -2,3 +2,19 @@
 	background-color: #c89500;
 	border: 0;
 }
+
+
+@media(min-width: 650px){
+	#login-box{
+		width: 30rem !important;
+	}
+	.form-control-login{
+		width: 100%;		
+	}
+}
+
+@media (max-width: 650px) {	
+	#login-box{
+		width: 90vw !important;
+	}
+}

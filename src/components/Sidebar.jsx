@@ -13,7 +13,7 @@ function Sidebar() {
     dispatch(logout());
   }
   return (
-    <div id="layoutSidenav_nav" className="d-none d-md-block">
+    <div id="layoutSidenav_nav" className="d-none d-lg-block">
       <nav className="sb-sidenav  sb-sidenav-dark" id="sidenavAccordion">
         <div className="sb-sidenav-menu">
           <div className="nav">
