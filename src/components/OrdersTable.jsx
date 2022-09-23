@@ -32,7 +32,13 @@ function OrdersTable() {
         <div className="d-flex justify-content-between py-4">
           <h1>Ordenes de compra</h1>
         </div>
-        <Table striped bordered hover style={{ marginBottom: "100%" }}>
+        <Table
+          responsive
+          striped
+          bordered
+          hover
+          style={{ marginBottom: "100%" }}
+        >
           <thead>
             <tr>
               <th>#</th>

@@ -13,7 +13,7 @@ function Sidebar() {
     dispatch(logout());
   }
   return (
-    <div id="layoutSidenav_nav">
+    <div id="layoutSidenav_nav" className="d-none d-md-block">
       <nav className="sb-sidenav  sb-sidenav-dark" id="sidenavAccordion">
         <div className="sb-sidenav-menu">
           <div className="nav">
@@ -70,20 +70,6 @@ function Sidebar() {
               </div>
               Categorías
             </Link>
-
-            <div className="sb-sidenav-menu-heading">Más</div>
-            <a className="nav-link" href="charts.html">
-              <div className="sb-nav-link-icon">
-                <i className="fas fa-chart-area"></i>
-              </div>
-              Estadisticas actuales
-            </a>
-            <a className="nav-link" href="tables.html">
-              <div className="sb-nav-link-icon">
-                <i className="fas fa-table"></i>
-              </div>
-              Proyecciones a futuro
-            </a>
           </div>
         </div>
         <div className="sb-sidenav-footer">

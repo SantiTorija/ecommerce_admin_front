@@ -2,13 +2,41 @@ import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { FaTrashAlt } from "react-icons/fa";
-import { GrEdit } from "react-icons/gr";
 import { useSelector } from "react-redux";
 
 function CategoriesTable() {
   const [types, setTypes] = useState(null);
   const adminState = useSelector((state) => state.admin);
+  let [tinto, setTinto] = useState(0);
+  let [blanco, setBlanco] = useState(0);
+  let [rose, setRose] = useState(0);
+  let [espumante, setEspumante] = useState(0);
+
+  useEffect(() => {
+    const dataWine = async () => {
+      const response = await axios({
+        method: "GET",
+        url: `${process.env.REACT_APP_API_URL}wines/`,
+      });
+
+      for (const wine of response.data) {
+        if (wine.type.name === "tinto") {
+          console.log("tinto");
+          setTinto((tinto += 0.5));
+        } else if (wine.type.name === "blanco") {
+          setBlanco((blanco += 0.5));
+        } else if (wine.type.name === "rose") {
+          setRose((rose += 0.5));
+        } else {
+          setEspumante((espumante += 0.5));
+        }
+      }
+
+      console.log(response.data);
+      return response;
+    };
+    dataWine();
+  }, []);
 
   useEffect(() => {
     const dataTypes = async () => {
@@ -21,7 +49,6 @@ function CategoriesTable() {
         },
       });
       setTypes(response.data);
-
       return response;
     };
     dataTypes();
@@ -37,7 +64,13 @@ function CategoriesTable() {
             <button className="btn btn-success">Agregar nuevo</button>
           </Link>
         </div>
-        <Table striped bordered hover style={{ marginBottom: "100%" }}>
+        <Table
+          responsive
+          striped
+          bordered
+          hover
+          style={{ marginBottom: "100%" }}
+        >
           <thead>
             <tr>
               <th>#</th>
@@ -51,7 +84,10 @@ function CategoriesTable() {
                 <tr key={type._id}>
                   <td>{index + 1}</td>
                   <td>{type.name}</td>
-                  <td>{Math.floor(Math.random() * 50)}</td>
+                  {type.name === "tinto" ? <td>{tinto}</td> : ""}
+                  {type.name === "blanco" ? <td>{blanco}</td> : ""}
+                  {type.name === "rose" ? <td>{rose}</td> : ""}
+                  {type.name === "espumante" ? <td>{espumante}</td> : ""}
                 </tr>
               );
             })}

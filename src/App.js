@@ -13,10 +13,11 @@ import Categories from "./pages/Categories";
 import NewAdmin from "./pages/NewAdmin";
 import EditAdmin from "./pages/EditAdmin";
 import EditOrder from "./pages/EditOrder";
+import NewType from "./pages/NewType";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-light">
       <Routes>
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Home />} />
@@ -29,6 +30,7 @@ function App() {
           <Route path="/ordenes" element={<Orders />} />
           <Route path="/editar/orden/:id" element={<EditOrder />} />
           <Route path="/categorias" element={<Categories />} />
+          <Route path="/crear/tipo" element={<NewType />} />
           <Route path="*" element={<Home />} />
         </Route>
         <Route path="/login" element={<Login />} />
