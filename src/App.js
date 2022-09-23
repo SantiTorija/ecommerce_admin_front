@@ -13,12 +13,13 @@ import Categories from "./pages/Categories";
 import NewAdmin from "./pages/NewAdmin";
 import EditAdmin from "./pages/EditAdmin";
 import EditOrder from "./pages/EditOrder";
+import NewType from "./pages/NewType";
 import { useState } from "react";
 
 function App() {
   const [refresh, setRefresh] = useState(false);
   return (
-    <div className="App">
+    <div className="App bg-light">
       <Routes>
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Home />} />
@@ -57,6 +58,7 @@ function App() {
             path="/categorias"
             element={<Categories refresh={refresh} setRefresh={setRefresh} />}
           />
+          <Route path="/crear/tipo" element={<NewType />} />
           <Route path="*" element={<Home />} />
         </Route>
         <Route path="/login" element={<Login />} />

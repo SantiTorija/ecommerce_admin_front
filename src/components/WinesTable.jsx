@@ -18,7 +18,7 @@ function WinesTable({ setRefresh, refresh }) {
         url: `${process.env.REACT_APP_API_URL}wines/`,
       });
       setWines(response.data);
-
+      console.log(response.data);
       return response;
     };
     dataWine();
@@ -33,7 +33,13 @@ function WinesTable({ setRefresh, refresh }) {
             <button className="btn btn-success">Agregar nuevo</button>
           </Link>
         </div>
-        <Table striped bordered hover style={{ marginBottom: "100%" }}>
+        <Table
+          responsive
+          striped
+          bordered
+          hover
+          style={{ marginBottom: "100%" }}
+        >
           <thead>
             <tr>
               <th>#</th>
