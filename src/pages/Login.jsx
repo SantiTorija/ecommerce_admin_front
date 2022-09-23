@@ -33,6 +33,16 @@ function Login() {
     }
   }
 
+  function loadFakeData(checked) {
+    if (!checked) {
+      setEmail("");
+      setPassword("");
+    } else {
+      setEmail("admin@gmail.com");
+      setPassword("password");
+    }
+  }
+
   return (
     <div
       style={{
@@ -56,19 +66,31 @@ function Login() {
           <Form.Control
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            defaultValue={email}
+            value={email}
             placeholder="Ingrese email"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-2" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
-            defaultValue={password}
+            value={password}
           />
         </Form.Group>
+        <div className="form-check input__checkbox mb-3">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="flexCheckDefault"
+            defaultChecked={true}
+            onChange={(e) => loadFakeData(e.target.checked)}
+          />
+          <label className="form-check-label" htmlFor="flexCheckDefault">
+            Cargar datos de prueba
+          </label>
+        </div>
         <Button className="w-100" variant="primary" type="submit">
           Submit
         </Button>
