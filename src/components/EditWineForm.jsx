@@ -6,7 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function EditForm() {
+function EditForm({ setRefresh, refresh }) {
   useEffect(() => {
     const dataWine = async () => {
       const response = await axios({
@@ -62,6 +62,7 @@ function EditForm() {
           "Content-Type": "application/json",
         },
       });
+      setRefresh(!refresh);
       return response;
     } catch (error) {
       console.log(error);
@@ -95,8 +96,7 @@ function EditForm() {
           style={{ maxWidth: "50rem" }}
           onSubmit={(e) => {
             updateProduct();
-            console.log(name);
-            navigate("/Products");
+            navigate("/productos");
           }}
         >
           <div className="d-flex mb-4">

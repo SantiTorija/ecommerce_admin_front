@@ -7,7 +7,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
 import { useSelector } from "react-redux";
 
-function AdminTable() {
+function AdminTable({ setRefresh, refresh }) {
   const [admins, setAdmins] = useState(null);
   const adminState = useSelector((state) => state.admin);
 
@@ -26,7 +26,7 @@ function AdminTable() {
       return response;
     };
     dataAdmins();
-  }, []);
+  }, [refresh]);
 
   return (
     admins && (
@@ -80,7 +80,12 @@ function AdminTable() {
                         color: "red",
                       }}
                       onClick={() =>
-                        handleDeleteAdmin(admin._id, adminState.token)
+                        handleDeleteAdmin(
+                          admin._id,
+                          adminState.token,
+                          setRefresh,
+                          refresh
+                        )
                       }
                     >
                       <FaTrashAlt />

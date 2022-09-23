@@ -7,7 +7,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
 import { useSelector } from "react-redux";
 
-function WinesTable() {
+function WinesTable({ setRefresh, refresh }) {
   const [wines, setWines] = useState(null);
   const adminState = useSelector((state) => state.admin);
 
@@ -22,7 +22,7 @@ function WinesTable() {
       return response;
     };
     dataWine();
-  }, []);
+  }, [refresh]);
 
   return (
     wines && (
@@ -77,7 +77,12 @@ function WinesTable() {
                         color: "red",
                       }}
                       onClick={() =>
-                        handleDeleteWine(wine._id, adminState.token)
+                        handleDeleteWine(
+                          wine._id,
+                          adminState.token,
+                          refresh,
+                          setRefresh
+                        )
                       }
                     >
                       <FaTrashAlt />

@@ -14,22 +14,50 @@ import NewAdmin from "./pages/NewAdmin";
 import EditAdmin from "./pages/EditAdmin";
 import EditOrder from "./pages/EditOrder";
 import NewType from "./pages/NewType";
+import { useState } from "react";
 
 function App() {
+  const [refresh, setRefresh] = useState(false);
   return (
     <div className="App bg-light">
       <Routes>
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Home />} />
-          <Route path="/productos" element={<Products />} />
-          <Route path="/edit/:slug" element={<EditProduct />} />
-          <Route path="/create/wine" element={<NewProduct />} />
-          <Route path="/administradores" element={<Administrators />} />
-          <Route path="/create/admin" element={<NewAdmin />} />
-          <Route path="/edit/admin/:id" element={<EditAdmin />} />
-          <Route path="/ordenes" element={<Orders />} />
-          <Route path="/editar/orden/:id" element={<EditOrder />} />
-          <Route path="/categorias" element={<Categories />} />
+          <Route
+            path="/productos"
+            element={<Products refresh={refresh} setRefresh={setRefresh} />}
+          />
+          <Route
+            path="/edit/:slug"
+            element={<EditProduct refresh={refresh} setRefresh={setRefresh} />}
+          />
+          <Route
+            path="/create/wine"
+            element={<NewProduct refresh={refresh} setRefresh={setRefresh} />}
+          />
+          <Route
+            path="/administradores"
+            element={
+              <Administrators refresh={refresh} setRefresh={setRefresh} />
+            }
+          />
+          <Route
+            path="/create/admin"
+            element={<NewAdmin refresh={refresh} setRefresh={setRefresh} />}
+          />
+          <Route
+            path="/edit/admin/:id"
+            element={<EditAdmin refresh={refresh} setRefresh={setRefresh} />}
+          />
+          <Route path="/ordenes" element={<Orders refresh={refresh} />} />
+          <Route
+            path="/editar/orden/:id"
+            element={<EditOrder refresh={refresh} setRefresh={setRefresh} />}
+          />
+          <Route
+            path="/categorias"
+            element={<Categories refresh={refresh} setRefresh={setRefresh} />}
+          />
           <Route path="/crear/tipo" element={<NewType />} />
           <Route path="*" element={<Home />} />
         </Route>

@@ -2,14 +2,14 @@ import WinesTable from "../components/WinesTable";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
-function Products() {
+function Products({ setRefresh, refresh }) {
   return (
     <>
       <div className="sb-nav-fixed">
         <Navbar />
         <div id="layoutSidenav">
           <Sidebar />
-          <WinesTable />
+          <WinesTable refresh={refresh} setRefresh={setRefresh} />
         </div>
       </div>
       ;

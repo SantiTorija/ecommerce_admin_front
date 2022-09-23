@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Login() {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState("admin@gmail.com");
+  const [password, setPassword] = useState("password");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   async function getToken() {
@@ -56,6 +56,7 @@ function Login() {
           <Form.Control
             onChange={(e) => setEmail(e.target.value)}
             type="email"
+            defaultValue={email}
             placeholder="Ingrese email"
           />
         </Form.Group>
@@ -65,6 +66,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
+            defaultValue={password}
           />
         </Form.Group>
         <Button className="w-100" variant="primary" type="submit">

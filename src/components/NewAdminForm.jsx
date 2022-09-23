@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function CreateAdminForm() {
+function CreateAdminForm({ setRefresh, refresh }) {
   const adminState = useSelector((state) => state.admin);
   const navigate = useNavigate();
   const [firstname, setFirstname] = useState(null);
@@ -29,6 +29,7 @@ function CreateAdminForm() {
           "Content-Type": "application/json",
         },
       });
+      setRefresh(!refresh);
       return response;
     } catch (error) {
       console.log(error);

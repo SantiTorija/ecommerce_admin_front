@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import axios from "axios";
 
-export async function handleDeleteWine(id, token) {
+export async function handleDeleteWine(id, token, refresh, setRefresh) {
   async function productDelete() {
     await axios({
       method: "DELETE",
@@ -11,6 +11,7 @@ export async function handleDeleteWine(id, token) {
         "Content-Type": "application/json",
       },
     });
+    setRefresh(!refresh);
     return;
   }
   return Swal.fire({
@@ -30,7 +31,7 @@ export async function handleDeleteWine(id, token) {
   });
 }
 
-export async function handleDeleteAdmin(id, token) {
+export async function handleDeleteAdmin(id, token, refresh, setRefresh) {
   async function adminDelete() {
     await axios({
       method: "DELETE",
@@ -40,6 +41,7 @@ export async function handleDeleteAdmin(id, token) {
         "Content-Type": "application/json",
       },
     });
+    setRefresh(!refresh);
     return;
   }
   Swal.fire({

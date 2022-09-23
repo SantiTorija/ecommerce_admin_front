@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function EditOrderForm() {
+function EditOrderForm({ setRefresh, refresh }) {
   const params = useParams();
   const adminState = useSelector((state) => state.admin);
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ function EditOrderForm() {
           "Content-Type": "application/json",
         },
       });
-      console.log(response);
+      setRefresh(!refresh);
       return response;
     } catch (error) {
       console.log(error);

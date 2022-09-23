@@ -2,14 +2,14 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import EditAdminForm from "../components/EditAdminForm";
 
-function EditAdmin() {
+function EditAdmin({ setRefresh, refresh }) {
   return (
     <>
       <div className="sb-nav-fixed">
         <Navbar />
         <div id="layoutSidenav">
           <Sidebar />
-          <EditAdminForm />
+          <EditAdminForm refresh={refresh} setRefresh={setRefresh} />
         </div>
       </div>
       ;

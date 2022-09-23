@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-function CategoriesTable() {
+function CategoriesTable({ refresh }) {
   const [types, setTypes] = useState(null);
   const adminState = useSelector((state) => state.admin);
   let [tinto, setTinto] = useState(0);
@@ -52,8 +52,7 @@ function CategoriesTable() {
       return response;
     };
     dataTypes();
-  }, []);
-  console.log(types);
+  }, [refresh]);
 
   return (
     types && (
