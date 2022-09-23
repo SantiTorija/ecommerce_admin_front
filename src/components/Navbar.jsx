@@ -7,7 +7,7 @@ function Navbar() {
   const [modalShow, setModalShow] = useState(false);
   return (
     <>
-      <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+      <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark d-flex justify-content-between">
         <a className="navbar-brand ps-3" href="index.html">
           <img
             alt="hackWinesAdminLogo"
@@ -17,7 +17,7 @@ function Navbar() {
         </a>
         <button
           onClick={() => setModalShow(true)}
-          className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 "
+          className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 d-block d-md-none"
           id="sidebarToggle"
           href="#!"
         >
